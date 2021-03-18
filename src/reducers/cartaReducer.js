@@ -2,6 +2,9 @@ import {
   NUEVO_PRODUCTO,
   NUEVO_PRODUCTO_ERROR,
   NUEVO_PRODUCTO_CORRECTO,
+  DESCARGAR_PRODUCTO,
+  DESCARGAR_PRODUCTO_ERROR,
+  DESCARGAR_PRODUCTO_CORRECTO,
 } from "../types";
 
 const initialState = {
@@ -13,6 +16,7 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case NUEVO_PRODUCTO:
+    case DESCARGAR_PRODUCTO:
       return {
         ...state,
         loading: action.payload,
@@ -27,8 +31,9 @@ export default function (state = initialState, action) {
       return {
         ...state,
         loading: false,
-        error: action.payload
+        error: action.payload,
       };
+
     default:
       return state;
   }

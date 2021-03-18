@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { ReactReduxContext, useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { nuevoProductoAction } from "../../actions/productoActions";
 
-const FormularioNuevo = () => {
+const FormularioNuevo = ({history}) => {
 
   const [nombreProducto, guardarNombreProducto] = useState('');
   const [precioProducto, guardarPrecioProducto] = useState(0)
@@ -19,7 +19,12 @@ const FormularioNuevo = () => {
       nombreProducto,
       precioProducto
     });
+
+    history.push("/");
+    
   };
+
+
 
   return (
     <div>
@@ -31,6 +36,7 @@ const FormularioNuevo = () => {
         <input type="number" name="precioProducto" value={precioProducto} placeholder="Precio del producto" onChange={e => guardarPrecioProducto (Number(e.target.value))}/>
         <button type="submit">Añadir producto</button>
       </form>
+
     </div>
   );
 };
