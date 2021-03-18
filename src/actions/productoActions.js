@@ -25,7 +25,7 @@ const nuevoProductoCorrecto = producto => ({
     payload: producto
 });
 
-const nuevoProductoError = producto => ({
+const nuevoProductoError = estado => ({
     type: NUEVO_PRODUCTO_ERROR,
-    payload: producto
+    payload: estado
 });
