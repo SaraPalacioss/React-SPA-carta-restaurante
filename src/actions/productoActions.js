@@ -5,6 +5,27 @@ import {
 } from "../types";
 
 export function nuevoProductoAction(producto) {
-    return () => console.log(producto);
+    return (dispatch) => {
+        dispatch(nuevoProducto());
+        try {
+            dispatch(nuevoProductoCorrecto(producto));
+        } catch(err) {
+            dispatch(nuevoProductoError(true));
+        };
+    };
 };
 
+const nuevoProducto = () => ({
+    type: NUEVO_PRODUCTO,
+    payload: true
+});
+
+const nuevoProductoCorrecto = producto => ({
+    type: NUEVO_PRODUCTO_CORRECTO,
+    payload: producto
+});
+
+const nuevoProductoError = producto => ({
+    type: NUEVO_PRODUCTO_ERROR,
+    payload: producto
+});
