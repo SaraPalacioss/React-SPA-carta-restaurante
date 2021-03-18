@@ -51,7 +51,7 @@ export function descargarProductosAction() {
     try {
       const respuesta = await clienteAxios.get("/");
      dispatch(descargarProductosCorrecto(respuesta.data))
-      console.log(respuesta.data)
+   console.log(respuesta.data)
     } catch (err) {
       console.log(err);
       dispatch(descargarProductosError());

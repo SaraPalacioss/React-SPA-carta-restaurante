@@ -24,7 +24,7 @@ const FormularioNuevo = ({history}) => {
     
   };
 
-
+  
 
   return (
     <div>
