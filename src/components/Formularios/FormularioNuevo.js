@@ -14,7 +14,6 @@ const FormularioNuevo = ({history}) => {
   const submitNuevoProducto = e => {
     e.preventDefault();
     
-
     agregrarProducto({
       nombreProducto,
       precioProducto
@@ -24,7 +23,7 @@ const FormularioNuevo = ({history}) => {
     
   };
 
-  
+
 
   return (
     <div>

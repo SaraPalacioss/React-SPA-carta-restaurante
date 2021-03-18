@@ -5,9 +5,11 @@ import {
   DESCARGAR_PRODUCTO,
   DESCARGAR_PRODUCTO_ERROR,
   DESCARGAR_PRODUCTO_CORRECTO,
+  BORRAR_PRODUCTO,
+  BORRAR_PRODUCTO_ERROR,
+  BORRAR_PRODUCTO_CORRECTO,
 } from "../types";
 import clienteAxios from "../config/axios";
-import Swal from "sweetalert2";
 
 export function nuevoProductoAction(producto) {
   return async (dispatch) => {
@@ -16,12 +18,6 @@ export function nuevoProductoAction(producto) {
       await clienteAxios.post("/nuevo", producto);
       dispatch(nuevoProductoCorrecto(producto));
 
-      Swal.fire({
-        title: "Correcto!",
-        text: "El producto se ha añadido a la carta",
-        icon: "success",
-        confirmButtonText: "Cerrar",
-      });
     } catch (err) {
       console.log(err);
       dispatch(nuevoProductoError(true));
@@ -36,12 +32,12 @@ const nuevoProducto = () => ({
 
 const nuevoProductoCorrecto = producto => ({
   type: NUEVO_PRODUCTO_CORRECTO,
-  payload: producto,
+  payload: producto
 });
 
 const nuevoProductoError = estado => ({
   type: NUEVO_PRODUCTO_ERROR,
-  payload: estado,
+  payload: estado
 });
 
 export function descargarProductosAction() {
@@ -50,14 +46,13 @@ export function descargarProductosAction() {
 
     try {
       const respuesta = await clienteAxios.get("/");
-     dispatch(descargarProductosCorrecto(respuesta.data))
-   console.log(respuesta.data)
+      dispatch(descargarProductosCorrecto(respuesta.data));
     } catch (err) {
       console.log(err);
       dispatch(descargarProductosError());
     }
   };
-};
+}
 
 const descargarProductos = () => ({
   type: DESCARGAR_PRODUCTO,
@@ -69,8 +64,33 @@ const descargarProductosCorrecto = producto => ({
   payload: producto
 });
 
-const descargarProductosError = estado => ({
+const descargarProductosError = () => ({
   type: DESCARGAR_PRODUCTO_ERROR,
   payload: true
 });
 
+export function borrarProductosAction(id) {
+  return async (dispatch) => {
+    dispatch(obtenerProductoBorrar(id));
+    try {
+     await clienteAxios.delete(`/borrar/${id}`);
+     dispatch(borrarProductoCorrecto());
+    } catch (err) {
+    
+    }
+  };
+}
+
+const obtenerProductoBorrar = id => ({
+  type: BORRAR_PRODUCTO,
+  payload: id,
+});
+
+const borrarProductoCorrecto = id => ({
+  type:   BORRAR_PRODUCTO_CORRECTO
+});
+
+const borrarProductoError = id => ({
+  type:   BORRAR_PRODUCTO_ERROR,
+  payload: true
+});

@@ -5,12 +5,14 @@ import {
   DESCARGAR_PRODUCTO,
   DESCARGAR_PRODUCTO_ERROR,
   DESCARGAR_PRODUCTO_CORRECTO,
+  BORRAR_PRODUCTO,
+  BORRAR_PRODUCTO_ERROR,
+  BORRAR_PRODUCTO_CORRECTO,
 } from "../types";
 
 const initialState = {
   carta: [],
-  error: false,
-  loading: false,
+  borrarProducto: null,
 };
 
 export default function (state = initialState, action) {
@@ -29,6 +31,8 @@ export default function (state = initialState, action) {
       };
     case NUEVO_PRODUCTO_ERROR:
     case DESCARGAR_PRODUCTO_ERROR:
+    case BORRAR_PRODUCTO_ERROR:
+
       return {
         ...state,
         loading: false,
@@ -40,6 +44,20 @@ export default function (state = initialState, action) {
         loading: false,
         error: null,
         productos: action.payload,
+        productoBorrar: null
+      };
+    case BORRAR_PRODUCTO:
+      return {
+        ...state,
+        productoBorrar: action.payload,
+      };
+    case BORRAR_PRODUCTO_CORRECTO:
+      return {
+        ...state,
+        productos: state.productos.filter(
+          producto => producto.id !== state.productoBorrar
+        ),
+        productoBorrar: null
       };
     default:
       return state;

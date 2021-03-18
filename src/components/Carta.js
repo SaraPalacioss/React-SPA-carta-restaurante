@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { descargarProductosAction } from "../actions/productoActions";
 import Producto from "./Producto";
 
@@ -10,29 +11,39 @@ const Carta = () => {
     const loadingProductos = () => dispatch(descargarProductosAction());
     loadingProductos();
   }, []);
-
+  
   const productos = useSelector((state) => state.carta.productos);
+  const cargando = useSelector(state => state.carta.loading);
+
+
   console.log(productos);
 
   return (
+    
     <div>
       <h1>Todos la carta</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Opciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {productos.length === 0
-            ? "No hay productos"
-            : productos.map((producto) => (
-                <Producto key={producto.id} producto={producto} />
-              ))}
-        </tbody>
-      </table>
+
+      {cargando ? (
+        <p className="text-center">Cargando....</p>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              productos.map(producto => (
+                  <Producto key={producto.id} producto={producto} />
+                ))}
+          </tbody>
+        </table>
+      )}
+      <Link to="/nuevo">Añadir</Link>
+
     </div>
   );
 };
