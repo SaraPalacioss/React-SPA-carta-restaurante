@@ -1,9 +1,18 @@
-import React from 'react';
+import React from "react";
 
 const FormularioNuevo = () => {
-    return (  
-        <h1>Soy el formulario de editar producto</h1>
-    );
-}
- 
+  return (
+    <div>
+      <h1>EDITAR PRODUCTO</h1>
+      <form>
+        <label>Nombre: </label>
+        <input type="text" name="name" placeholder="Nombre del producto" />
+        <label>Precio: </label>
+        <input type="number" name="price" placeholder="Precio del producto" />
+        <button type="button">Guardar cambios</button>
+      </form>
+    </div>
+  );
+};
+
 export default FormularioNuevo;
