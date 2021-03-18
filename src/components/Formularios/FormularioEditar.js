@@ -6,7 +6,7 @@ const FormularioNuevo = () => {
       <h1>EDITAR PRODUCTO</h1>
       <form>
         <label>Nombre: </label>
-        <input type="text" name="name" placeholder="Nombre del producto" />
+        <input type="text" name="productName" placeholder="Nombre del producto" />
         <label>Precio: </label>
         <input type="number" name="price" placeholder="Precio del producto" />
         <button type="button">Guardar cambios</button>
