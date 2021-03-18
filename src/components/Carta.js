@@ -11,18 +11,16 @@ const Carta = () => {
     const loadingProductos = () => dispatch(descargarProductosAction());
     loadingProductos();
   }, []);
-  
-  const productos = useSelector((state) => state.carta.productos);
 
+  const productos = useSelector((state) => state.carta.productos);
 
   console.log(productos);
 
   return (
-    
     <div>
-      <h1>Todos la carta</h1>
+      <h1>Toda la carta</h1>
 
-      {productos.length === undefined || productos.length === null || productos.length === 0 ? (
+      {!productos ? (
         <p className="text-center">Cargando....</p>
       ) : (
         <table>
@@ -34,15 +32,13 @@ const Carta = () => {
             </tr>
           </thead>
           <tbody>
-            {
-              productos.map(producto => (
-                  <Producto key={producto.id} producto={producto} />
-                ))}
+            {productos.map((producto) => (
+              <Producto key={producto.id} producto={producto} />
+            ))}
           </tbody>
         </table>
       )}
       <Link to="/nuevo">Añadir</Link>
-
     </div>
   );
 };
