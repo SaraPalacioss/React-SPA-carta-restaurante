@@ -3,13 +3,17 @@ import {
     NUEVO_PRODUCTO_ERROR,
     NUEVO_PRODUCTO_CORRECTO,
 } from "../types";
+import clienteAxios from '../config/axios';
 
 export function nuevoProductoAction(producto) {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(nuevoProducto());
         try {
+            await clienteAxios.post('/carta/nuevo', producto)
             dispatch(nuevoProductoCorrecto(producto));
+            console.log(producto)
         } catch(err) {
+            console.log(err)
             dispatch(nuevoProductoError(true));
         };
     };
