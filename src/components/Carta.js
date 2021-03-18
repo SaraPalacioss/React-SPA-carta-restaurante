@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { descargarProductosAction } from "../actions/productoActions";
 
 const Carta = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const loadingProductos = () => dispatch(descargarProductosAction());
+    loadingProductos();
+  }, []);
+  
   return (
     <div>
       <h1>Todos la carta</h1>

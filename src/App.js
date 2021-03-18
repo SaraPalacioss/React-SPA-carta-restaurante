@@ -16,9 +16,9 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Carta} />
-          <Route exact path="/carta/nuevo" component={FormularioNuevo} />
-          <Route exact path="/carta/editar/:id" component={FormularioEditar} />
-          <Route exact path="/carta/borrar/:id" component={FormularioBorrar} />
+          <Route exact path="/nuevo" component={FormularioNuevo} />
+          <Route exact path="/editar/:id" component={FormularioEditar} />
+          <Route exact path="/borrar/:id" component={FormularioBorrar} />
         </Switch>
       </Provider>
     </Router>

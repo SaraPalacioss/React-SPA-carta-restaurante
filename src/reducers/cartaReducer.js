@@ -28,12 +28,19 @@ export default function (state = initialState, action) {
         carta: [...state.carta, action.payload],
       };
     case NUEVO_PRODUCTO_ERROR:
+    case DESCARGAR_PRODUCTO_ERROR:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
-
+    case DESCARGAR_PRODUCTO_CORRECTO:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        productos: action.payload,
+      };
     default:
       return state;
   }

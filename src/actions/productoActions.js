@@ -13,7 +13,7 @@ export function nuevoProductoAction(producto) {
   return async (dispatch) => {
     dispatch(nuevoProducto());
     try {
-      await clienteAxios.post("/carta/nuevo", producto);
+      await clienteAxios.post("/nuevo", producto);
       dispatch(nuevoProductoCorrecto(producto));
 
       Swal.fire({
@@ -34,12 +34,12 @@ const nuevoProducto = () => ({
   payload: true,
 });
 
-const nuevoProductoCorrecto = (producto) => ({
+const nuevoProductoCorrecto = producto => ({
   type: NUEVO_PRODUCTO_CORRECTO,
   payload: producto,
 });
 
-const nuevoProductoError = (estado) => ({
+const nuevoProductoError = estado => ({
   type: NUEVO_PRODUCTO_ERROR,
   payload: estado,
 });
@@ -47,11 +47,30 @@ const nuevoProductoError = (estado) => ({
 export function descargarProductosAction() {
   return async (dispatch) => {
     dispatch(descargarProductos());
+
+    try {
+      const respuesta = await clienteAxios.get("/");
+     dispatch(descargarProductosCorrecto(respuesta.data))
+      console.log(respuesta.data)
+    } catch (err) {
+      console.log(err);
+      dispatch(descargarProductosError());
+    }
   };
 };
 
 const descargarProductos = () => ({
   type: DESCARGAR_PRODUCTO,
+  payload: true
+});
+
+const descargarProductosCorrecto = producto => ({
+  type: DESCARGAR_PRODUCTO_CORRECTO,
+  payload: producto
+});
+
+const descargarProductosError = estado => ({
+  type: DESCARGAR_PRODUCTO_ERROR,
   payload: true
 });
 
