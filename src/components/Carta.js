@@ -13,7 +13,6 @@ const Carta = () => {
   }, []);
   
   const productos = useSelector((state) => state.carta.productos);
-  const cargando = useSelector(state => state.carta.loading);
 
 
   console.log(productos);
@@ -23,7 +22,7 @@ const Carta = () => {
     <div>
       <h1>Todos la carta</h1>
 
-      {cargando ? (
+      {productos.length === undefined || productos.length === null || productos.length === 0 ? (
         <p className="text-center">Cargando....</p>
       ) : (
         <table>
