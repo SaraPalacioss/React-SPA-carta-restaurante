@@ -14,11 +14,16 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
     .btn-editar,
     .btn-borrar {
       font-size: smaller;
       padding: 5px;
+    }
+    .td {
+        background-color: rgb(88, 90, 86);
+        width: 200px;
+        text-align: center;
     }
   }
 
