@@ -1,28 +1,76 @@
 .carta {
-    margin: 0 auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.carta h1 {
+    font-size:large;
+}
+
+th {
+  background-color: rgb(36, 37, 36);
+  padding: 10px;
+  width: 300px;
+}
+
+.link {
+  display: flex;
+  margin-top: 30px;
+  color: whitesmoke;
+  text-decoration: none;
+  justify-content: center;
+  background-color: black;
+  padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .carta {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-content: center;
     justify-content: center;
     align-items: center;
-    height: 90vh;
-}
+    height: fit-content;
+  }
+  table {
+    width: 50%;
+  }
+  thead {
+    display: none;
+  }
 
-th {
-    background-color: rgb(110, 172, 110);
-    padding: 10px;
-    width: 300px;
-}
+  tr td:first-child {
+    background-color: #221f1f;
+    font-weight: bold;
+    font-size: smaller;
+  }
+  tbody td {
+    display: block;
+    height: fit-content;
+  }
 
-.link {
+  .td-action {
     display: flex;
-    margin-top: 30px;
-    color: whitesmoke;
-    text-decoration: none;
+    margin-bottom: 10px;
     justify-content: center;
-    background-color: black;
+    padding: 2px;
+  }
+
+  .link {
+    font-size: smaller;
+    margin-bottom: 20px;
     padding: 20px;
+  }
 
-  
+  .btn-editar,
+  .btn-borrar {
+    font-size: smaller;
+    padding: 5px;
+  }
 }
-

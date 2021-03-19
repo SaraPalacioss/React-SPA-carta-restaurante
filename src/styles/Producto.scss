@@ -4,7 +4,7 @@
 }
 
 .td {
-    background-color: rgb(174, 199, 137);
+    background-color: rgb(88, 90, 86);
     width: 300px;
     text-align: center;
 }
@@ -12,3 +12,15 @@
 .td-action {
     text-align: center;
 }
+
+
+@media screen and (max-width: 600px) {
+    .btn-editar,
+    .btn-borrar {
+      font-size: smaller;
+      padding: 5px;
+    }
+  }
+
+  
+

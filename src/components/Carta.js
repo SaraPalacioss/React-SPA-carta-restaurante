@@ -25,20 +25,24 @@ const Carta = () => {
         <table>
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>Precio</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio</th>
             </tr>
           </thead>
           <tbody>
-            {productos.length === 0
-              ? <p>No hay productos</p>
-              : productos.map((producto) => (
-                  <Producto key={producto.id} producto={producto} />
-                ))}
+            {productos.length === 0 ? (
+              <p>No hay productos</p>
+            ) : (
+              productos.map((producto) => (
+                <Producto key={producto.id} producto={producto} />
+              ))
+            )}
           </tbody>
         </table>
       )}
-      <Link to="/nuevo" className="link">Añadir nuevo producto</Link>
+      <Link to="/nuevo" className="link">
+        Añadir nuevo producto
+      </Link>
     </div>
   );
 };

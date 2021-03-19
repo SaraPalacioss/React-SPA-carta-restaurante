@@ -24,9 +24,8 @@ const Producto = ({ producto }) => {
       <td className="td">{nombreProducto}</td>
       <td className="td">{precioProducto}€</td>
       <td className="td-action">
-        <button type="button" onClick={() => redirectEditar(producto)}>Editar</button>
-      </td>
-      <td className="td-action">
+        <button className="btn-editar" type="button" onClick={() => redirectEditar(producto)}>Editar</button>
+     
         <button className="btn-borrar" onClick={() => borrarProducto(id)}>Borrar</button>
       </td>
     </tr>
