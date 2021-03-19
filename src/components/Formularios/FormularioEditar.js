@@ -41,7 +41,6 @@ const FormularioEditar = () => {
 
     history.push('/')
   }
-  console.log(producto)
   return (
     <div className="formulario">
     <div>

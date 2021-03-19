@@ -6,11 +6,9 @@ import {
   DESCARGAR_PRODUCTO_ERROR,
   DESCARGAR_PRODUCTO_CORRECTO,
   BORRAR_PRODUCTO,
-  BORRAR_PRODUCTO_ERROR,
   BORRAR_PRODUCTO_CORRECTO,
   EDITAR_PRODUCTO,
   EDITAR_PRODUCTO_INICIAR,
-  EDITAR_PRODUCTO_ERROR,
   EDITAR_PRODUCTO_CORRECTO
 } from "../types";
 import clienteAxios from "../config/axios";
@@ -22,7 +20,6 @@ export function nuevoProductoAction(producto) {
       await clienteAxios.post("/nuevo", producto);
       dispatch(nuevoProductoCorrecto(producto));
     } catch (err) {
-      console.log(err);
       dispatch(nuevoProductoError(true));
     }
   };
@@ -51,7 +48,6 @@ export function descargarProductosAction() {
       const respuesta = await clienteAxios.get("/");
       dispatch(descargarProductosCorrecto(respuesta.data));
     } catch (err) {
-      console.log(err);
       dispatch(descargarProductosError());
     }
   };
@@ -91,10 +87,6 @@ const borrarProductoCorrecto = (id) => ({
   type: BORRAR_PRODUCTO_CORRECTO,
 });
 
-const borrarProductoError = (id) => ({
-  type: BORRAR_PRODUCTO_ERROR,
-  payload: true,
-});
 
 export function obtenerProductoEditar(producto) {
   return (dispatch) => {
