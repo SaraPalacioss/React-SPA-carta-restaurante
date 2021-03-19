@@ -1,0 +1,28 @@
+.carta {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+th {
+    background-color: rgb(110, 172, 110);
+    padding: 10px;
+    width: 300px;
+}
+
+.link {
+    display: flex;
+    margin-top: 30px;
+    color: whitesmoke;
+    text-decoration: none;
+    justify-content: center;
+    background-color: black;
+    padding: 20px;
+
+  
+}
+

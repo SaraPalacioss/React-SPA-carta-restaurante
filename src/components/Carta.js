@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { descargarProductosAction } from "../actions/productoActions";
 import Producto from "./Producto";
+import "../styles/Carta.scss";
 
 const Carta = () => {
   const dispatch = useDispatch();
@@ -13,13 +14,10 @@ const Carta = () => {
     const loadingProductos = () => dispatch(descargarProductosAction());
     loadingProductos();
   }, []);
-  
- 
 
   return (
-    
-    <div>
-      <h1>Toda la carta</h1>
+    <div className="carta">
+      <h1>CARTA</h1>
 
       {!productos ? (
         <p className="text-center">Cargando....</p>
@@ -29,23 +27,18 @@ const Carta = () => {
             <tr>
               <th>Nombre</th>
               <th>Precio</th>
-              <th>Opciones</th>
             </tr>
           </thead>
           <tbody>
-          { productos.length === 0 ? 'No hay productos' : (
-                       productos.map(producto => (
-                           <Producto
-                                key={producto.id}
-                                producto={producto}
-                           />
-                       ))
-                   ) }
+            {productos.length === 0
+              ? <p>No hay productos</p>
+              : productos.map((producto) => (
+                  <Producto key={producto.id} producto={producto} />
+                ))}
           </tbody>
         </table>
       )}
-      <Link to="/nuevo">Añadir</Link>
-
+      <Link to="/nuevo" className="link">Añadir nuevo producto</Link>
     </div>
   );
 };

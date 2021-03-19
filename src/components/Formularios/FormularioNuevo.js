@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { nuevoProductoAction } from "../../actions/productoActions";
+import "../../styles/Formularios.scss";
 
 const FormularioNuevo = ({ history }) => {
   const [nombreProducto, guardarNombreProducto] = useState("");
-  const [precioProducto, guardarPrecioProducto] = useState(0);
+  const [precioProducto, guardarPrecioProducto] = useState();
 
   const dispatch = useDispatch();
 
@@ -28,30 +30,39 @@ const FormularioNuevo = ({ history }) => {
   };
 
   return (
-    <div>
-      <h1>AGREGAR PRODUCTO</h1>
-
-      <form onSubmit={submitNuevoProducto}>
-        <span id="alert"></span>
-
-        <label>Nombre: </label>
-        <input
-          type="text"
-          name="nombreProducto"
-          value={nombreProducto}
-          placeholder="Nombre del producto"
-          onChange={(e) => guardarNombreProducto(e.target.value)}
-        />
-        <label>Precio: </label>
-        <input
-          type="number"
-          name="precioProducto"
-          value={precioProducto}
-          placeholder="Precio del producto"
-          onChange={(e) => guardarPrecioProducto(Number(e.target.value))}
-        />
-        <button type="submit">Añadir producto</button>
-      </form>
+    <div className="formulario">
+      <div>
+        <h1>AGREGAR PRODUCTO</h1>
+      </div>
+      <div>
+        <form onSubmit={submitNuevoProducto}>
+          <div className="alert">
+            <span id="alert"></span>
+          </div>
+          <div className="formulario-box">
+            <label>Nombre: </label>
+            <input
+              type="text"
+              name="nombreProducto"
+              value={nombreProducto}
+              placeholder="Nombre del producto"
+              onChange={(e) => guardarNombreProducto(e.target.value)}
+            />
+            <label>Precio: </label>
+            <input
+              type="number"
+              name="precioProducto"
+              value={precioProducto}
+              placeholder="Precio del producto"
+              onChange={(e) => guardarPrecioProducto(e.target.value)}
+            />
+          </div>
+          <div className="navigation">
+            <button type="submit">Añadir producto</button>
+            <Link className="link" to ="/">Volver a la carta</Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

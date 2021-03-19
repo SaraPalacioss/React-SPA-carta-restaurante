@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { borrarProductosAction, obtenerProductoEditar} from "../actions/productoActions";
+import "../styles/Producto.scss";
 
 const Producto = ({ producto }) => {
   const { nombreProducto, precioProducto, id } = producto;
@@ -20,13 +21,13 @@ const Producto = ({ producto }) => {
   
   return (
     <tr>
-      <td>{nombreProducto}</td>
-      <td>{precioProducto}€</td>
-      <td>
+      <td className="td">{nombreProducto}</td>
+      <td className="td">{precioProducto}€</td>
+      <td className="td-action">
         <button type="button" onClick={() => redirectEditar(producto)}>Editar</button>
       </td>
-      <td>
-        <button onClick={() => borrarProducto(id)}>Borrar</button>
+      <td className="td-action">
+        <button className="btn-borrar" onClick={() => borrarProducto(id)}>Borrar</button>
       </td>
     </tr>
   );

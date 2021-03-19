@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+body {
+    background-image: url('./images/platter-2009590.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    font-family: 'Montserrat', sans-serif;
+    height: 110vh;
+    color: whitesmoke;
+}
