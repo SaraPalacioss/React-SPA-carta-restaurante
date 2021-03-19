@@ -32,7 +32,7 @@ const FormularioEditar = () => {
 
   const submitEditarProducto = e => {
     e.preventDefault();
-    if (nombreProducto.trim() === "" || precioProducto <= 0) {
+    if (nombreProducto.trim() === "" || precioProducto === undefined || precioProducto <= 0) {
       document.getElementById("alert").innerHTML =
         "No puede dejar los campos en blanco";
       return null;

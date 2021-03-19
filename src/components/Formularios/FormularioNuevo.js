@@ -16,7 +16,7 @@ const FormularioNuevo = ({ history }) => {
   const submitNuevoProducto = (e) => {
     e.preventDefault();
 
-    if (nombreProducto.trim() === "" || precioProducto <= 0) {
+    if (nombreProducto.trim() === "" || precioProducto === undefined || precioProducto <= 0) {
       document.getElementById("alert").innerHTML =
         "Debe cumplimentar todos los campos";
       return null;
@@ -54,7 +54,7 @@ const FormularioNuevo = ({ history }) => {
               name="precioProducto"
               value={precioProducto}
               placeholder="Precio del producto"
-              onChange={(e) => guardarPrecioProducto(e.target.value)}
+              onChange={(e) => guardarPrecioProducto(Number(e.target.value))}
             />
           </div>
           <div className="navigation">

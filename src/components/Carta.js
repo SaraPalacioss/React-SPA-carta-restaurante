@@ -13,7 +13,7 @@ const Carta = () => {
   useEffect(() => {
     const loadingProductos = () => dispatch(descargarProductosAction());
     loadingProductos();
-  }, []);
+  }, [productos]);
 
   return (
     <div className="carta">
