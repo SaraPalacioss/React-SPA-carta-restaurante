@@ -1,58 +1,126 @@
 .formulario {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
 }
 
 .formulario-box {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 input {
-    width: 400px;
-    padding: 5px;
-    font-size: medium;
+  width: 400px;
+  padding: 5px;
+  font-size: medium;
 }
 
-label  {
-margin: 10px 0 10px 0;
+label {
+  margin: 10px 0 10px 0;
 }
 
 button {
-    display: flex;
-    align-self: center;
-    margin-top: 15px;
-    padding: 10px;
-    cursor: pointer;
-    font-size: medium;
-    color: whitesmoke;
-    background-color: black;
-    border-radius: 4% 0 4% 0;
-    border: 1px solid black;
+  display: flex;
+  align-self: center;
+  margin-top: 15px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: medium;
+  color: whitesmoke;
+  background-color: black;
+  border-radius: 4% 0 4% 0;
+  border: 1px solid black;
 }
 
 .alert {
-    display: flex;
-    justify-content: center;
-    background-color: tomato;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: tomato;
+  margin-bottom: 10px;
 }
 
 .navigation {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .link {
+  display: flex;
+  margin-top: 30px;
+  color: whitesmoke;
+  text-decoration: none;
+  justify-content: center;
+}
+
+@media (min-width: 30px) {
+  h1 {
+    font-size: larger;
+  }
+
+  input {
+    width: 250px;
+  }
+
+  .alert {
     display: flex;
-    margin-top: 30px;
-    color: whitesmoke;
-    text-decoration: none;
+    font-size: small;
     justify-content: center;
+    background-color: tomato;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 500px) {
+  .readme {
+    height: 80vh;
+  }
+  .readme-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 20px;
+  }
+  .readme h1 {
+    margin-top: 10px;
+  }
+  .readme p {
+    padding-top: 10px;
+    font-size: 21px;
+  }
+  .readme img {
+    width: 350px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .readme {
+    height: 90vh;
+  }
+  .readme-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 20px;
+  }
+
+  .readme p {
+    padding-top: 10px;
+    font-size: 23px;
+  }
+  .readme img {
+    width: 420px;
+  }
 }
