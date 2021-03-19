@@ -8,11 +8,17 @@ import {
   BORRAR_PRODUCTO,
   BORRAR_PRODUCTO_ERROR,
   BORRAR_PRODUCTO_CORRECTO,
+  EDITAR_PRODUCTO,
+  EDITAR_PRODUCTO_ERROR,
+  EDITAR_PRODUCTO_CORRECTO,
 } from "../types";
 
 const initialState = {
   carta: [],
+  error: null,
+  loading: false,
   borrarProducto: null,
+  productoEditar: null,
 };
 
 export default function (state = initialState, action) {
@@ -32,7 +38,7 @@ export default function (state = initialState, action) {
     case NUEVO_PRODUCTO_ERROR:
     case DESCARGAR_PRODUCTO_ERROR:
     case BORRAR_PRODUCTO_ERROR:
-
+    case EDITAR_PRODUCTO_ERROR:
       return {
         ...state,
         loading: false,
@@ -44,7 +50,7 @@ export default function (state = initialState, action) {
         loading: false,
         error: null,
         productos: action.payload,
-        productoBorrar: null
+        productoBorrar: null,
       };
     case BORRAR_PRODUCTO:
       return {
@@ -55,9 +61,24 @@ export default function (state = initialState, action) {
       return {
         ...state,
         productos: state.productos.filter(
-          producto => producto.id !== state.productoBorrar
+          (producto) => producto.id !== state.productoBorrar
         ),
-        productoBorrar: null
+        productoBorrar: null,
+      };
+    case EDITAR_PRODUCTO:
+      return {
+        ...state,
+        productoEditar: action.payload,
+      };
+    case EDITAR_PRODUCTO_CORRECTO:
+      return {
+        ...state,
+        productoEditar: null,
+        productos: state.prductos.map((producto) =>
+          producto.id === action.payload.id
+            ? (producto = action.payload)
+            : producto
+        ),
       };
     default:
       return state;

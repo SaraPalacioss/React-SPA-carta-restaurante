@@ -7,16 +7,17 @@ import Producto from "./Producto";
 const Carta = () => {
   const dispatch = useDispatch();
 
+  const productos = useSelector((state) => state.carta.productos);
+
   useEffect(() => {
     const loadingProductos = () => dispatch(descargarProductosAction());
     loadingProductos();
   }, []);
-
-  const productos = useSelector((state) => state.carta.productos);
-
-  console.log(productos);
+  
+ 
 
   return (
+    
     <div>
       <h1>Toda la carta</h1>
 
@@ -32,13 +33,19 @@ const Carta = () => {
             </tr>
           </thead>
           <tbody>
-            {productos.map((producto) => (
-              <Producto key={producto.id} producto={producto} />
-            ))}
+          { productos.length === 0 ? 'No hay productos' : (
+                       productos.map(producto => (
+                           <Producto
+                                key={producto.id}
+                                producto={producto}
+                           />
+                       ))
+                   ) }
           </tbody>
         </table>
       )}
       <Link to="/nuevo">Añadir</Link>
+
     </div>
   );
 };

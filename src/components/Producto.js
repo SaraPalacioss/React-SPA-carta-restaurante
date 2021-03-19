@@ -1,15 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { borrarProductosAction } from "../actions/productoActions";
+import { borrarProductosAction, obtenerProductoEditar} from "../actions/productoActions";
 
 const Producto = ({ producto }) => {
   const { nombreProducto, precioProducto, id } = producto;
 
   const dispatch = useDispatch();
+  const history=useHistory();
 
   const borrarProducto = id => {
     dispatch(borrarProductosAction(id));
+  }
+
+  const redirectEditar = producto => {
+    dispatch(obtenerProductoEditar(producto))
+    history.push(`/editar/${producto.id}`)
   }
   
   return (
@@ -17,7 +23,7 @@ const Producto = ({ producto }) => {
       <td>{nombreProducto}</td>
       <td>{precioProducto}€</td>
       <td>
-        <Link to={`/editar/${id}`}>Editar</Link>
+        <button type="button" onClick={() => redirectEditar(producto)}>Editar</button>
       </td>
       <td>
         <button onClick={() => borrarProducto(id)}>Borrar</button>

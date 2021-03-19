@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormularioNuevo = () => {
+const FormularioBorrar = () => {
   return (
     <div>
       <h1>BORRAR PRODUCTO</h1>
@@ -15,4 +15,4 @@ const FormularioNuevo = () => {
   );
 };
 
-export default FormularioNuevo;
+export default FormularioBorrar;
