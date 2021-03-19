@@ -5,7 +5,9 @@ import { nuevoProductoAction } from "../../actions/productoActions";
 import "../../styles/Formularios.scss";
 
 const FormularioNuevo = ({ history }) => {
+
   const [nombreProducto, guardarNombreProducto] = useState("");
+
   const [precioProducto, guardarPrecioProducto] = useState();
 
   const dispatch = useDispatch();
@@ -20,7 +22,8 @@ const FormularioNuevo = ({ history }) => {
       document.getElementById("alert").innerHTML =
         "Debe cumplimentar todos los campos";
       return null;
-    }
+    };
+    
     agregrarProducto({
       nombreProducto,
       precioProducto,

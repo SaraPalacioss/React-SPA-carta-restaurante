@@ -1,17 +1,3 @@
-.formulario {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-}
-
-.formulario-box {
-  display: flex;
-  flex-direction: column;
-}
 
 input {
   width: 400px;
@@ -36,6 +22,21 @@ button {
   border: 1px solid black;
 }
 
+.formulario {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.formulario-box {
+  display: flex;
+  flex-direction: column;
+}
+
 .alert {
   display: flex;
   justify-content: center;
@@ -58,6 +59,7 @@ button {
 }
 
 @media (min-width: 30px) {
+
   h1 {
     font-size: larger;
   }
@@ -76,9 +78,11 @@ button {
 }
 
 @media (min-width: 500px) {
+
   .readme {
     height: 80vh;
   }
+
   .readme-info {
     display: flex;
     flex-direction: column;
@@ -89,22 +93,27 @@ button {
     margin-right: 12px;
     margin-top: 20px;
   }
+
   .readme h1 {
     margin-top: 10px;
   }
+
   .readme p {
     padding-top: 10px;
     font-size: 21px;
   }
+
   .readme img {
     width: 350px;
   }
 }
 
 @media (min-width: 1200px) {
+
   .readme {
     height: 90vh;
   }
+  
   .readme-info {
     display: flex;
     flex-direction: row;

@@ -6,6 +6,7 @@ import Producto from "./Producto";
 import "../styles/Carta.scss";
 
 const Carta = () => {
+
   const dispatch = useDispatch();
 
   const productos = useSelector((state) => state.carta.productos);
@@ -18,7 +19,6 @@ const Carta = () => {
   return (
     <div className="carta">
       <h1>CARTA</h1>
-
       {!productos ? (
         <p className="text-center">Cargando....</p>
       ) : (

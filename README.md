@@ -1,6 +1,6 @@
 # MERN Web Application || Carta Restaurante
 
-MERN App desarrollada con los siguientes requisitos:
+MERN App responsive desarrollada con los siguientes requisitos:
 
 - Enrutador, store y componentes React
 - Conexión a API REST propia

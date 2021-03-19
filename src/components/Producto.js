@@ -5,19 +5,21 @@ import { borrarProductosAction, obtenerProductoEditar} from "../actions/producto
 import "../styles/Producto.scss";
 
 const Producto = ({ producto }) => {
+
   const { nombreProducto, precioProducto, id } = producto;
 
   const dispatch = useDispatch();
+  
   const history=useHistory();
 
   const borrarProducto = id => {
     dispatch(borrarProductosAction(id));
-  }
+  };
 
   const redirectEditar = producto => {
-    dispatch(obtenerProductoEditar(producto))
-    history.push(`/editar/${producto.id}`)
-  }
+    dispatch(obtenerProductoEditar(producto));
+    history.push(`/editar/${producto.id}`);
+  };
   
   return (
     <tr>

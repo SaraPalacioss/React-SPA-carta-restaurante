@@ -1,3 +1,9 @@
+th {
+  background-color: rgb(36, 37, 36);
+  padding: 10px;
+  width: 300px;
+}
+
 .carta {
   margin: 0 auto;
   display: flex;
@@ -11,12 +17,6 @@
 
 .carta h1 {
   font-size: x-large;
-}
-
-th {
-  background-color: rgb(36, 37, 36);
-  padding: 10px;
-  width: 300px;
 }
 
 .link {
@@ -38,15 +38,7 @@ th {
 }
 
 @media screen and (max-width: 600px) {
-  .carta {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-  }
+
   table {
     width: 50%;
   }
@@ -65,10 +57,21 @@ th {
     font-weight: bold;
     font-size: smaller;
   }
+
   tbody td {
     display: block;
   }
 
+  .carta {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+  }
+  
   .td-action {
     display: flex;
     margin-bottom: 10px;

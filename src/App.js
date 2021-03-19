@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Carta from "./components/Carta";
 import FormularioNuevo from "./components/Formularios/FormularioNuevo";
 import FormularioEditar from "./components/Formularios/FormularioEditar";
-
 import { Provider } from "react-redux";
 import store from "./store";
 

@@ -11,19 +11,26 @@ import {
   EDITAR_PRODUCTO_INICIAR,
   EDITAR_PRODUCTO_CORRECTO
 } from "../types";
+
 import clienteAxios from "../config/axios";
 
+
+// CREAR NUEVO PRODUCTO
+
 export function nuevoProductoAction(producto) {
+
   return async (dispatch) => {
     dispatch(nuevoProducto());
+
     try {
       await clienteAxios.post("/nuevo", producto);
       dispatch(nuevoProductoCorrecto(producto));
     } catch (err) {
       dispatch(nuevoProductoError(true));
     }
+
   };
-}
+};
 
 const nuevoProducto = () => ({
   type: NUEVO_PRODUCTO,
@@ -40,6 +47,9 @@ const nuevoProductoError = (estado) => ({
   payload: estado,
 });
 
+
+// OBTENER REGISTRO DE PRODUCTOS API
+
 export function descargarProductosAction() {
   return async (dispatch) => {
     dispatch(descargarProductos());
@@ -49,9 +59,10 @@ export function descargarProductosAction() {
       dispatch(descargarProductosCorrecto(respuesta.data));
     } catch (err) {
       dispatch(descargarProductosError());
-    }
+    };
+
   };
-}
+};
 
 const descargarProductos = () => ({
   type: DESCARGAR_PRODUCTO,
@@ -68,15 +79,20 @@ const descargarProductosError = () => ({
   payload: true,
 });
 
+
+// BORRAR PRODUCTO
+
 export function borrarProductosAction(id) {
   return async (dispatch) => {
     dispatch(obtenerProductoBorrar(id));
+
     try {
       await clienteAxios.delete(`/borrar/${id}`);
       dispatch(borrarProductoCorrecto());
-    } catch (err) {}
+    } catch (err) { }
+
   };
-}
+};
 
 const obtenerProductoBorrar = (id) => ({
   type: BORRAR_PRODUCTO,
@@ -88,34 +104,41 @@ const borrarProductoCorrecto = (id) => ({
 });
 
 
+// OBTENER PRODUCTO PARA EDITAR
+
 export function obtenerProductoEditar(producto) {
   return (dispatch) => {
     dispatch(obtenerProductoEditarAction(producto))
   }
-}
+};
 
 const obtenerProductoEditarAction = producto => ({
-  type:   EDITAR_PRODUCTO,
+  type: EDITAR_PRODUCTO,
   payload: producto
-})
+});
+
+
+// EDITAR PRODUCTO
 
 export function editarProductoAction(producto) {
   return async (dispatch) => {
-    dispatch (editarProducto())
+    dispatch(editarProducto())
 
-    try{
+    try {
       await clienteAxios.put(`/editar/${producto.id}`, producto);
       dispatch(editarProductoCorrecto(producto))
     } catch (error) {
-  }
-}}
+    }
+
+  };
+};
 
 const editarProducto = producto => ({
   type: EDITAR_PRODUCTO_INICIAR
 
-})
+});
 
 const editarProductoCorrecto = producto => ({
   type: EDITAR_PRODUCTO_CORRECTO,
   payload: producto
-})
+});
